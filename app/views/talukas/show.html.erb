@@ -1,0 +1,19 @@
+<center>
+  <p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Taluka</a>
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <div class="card card-body">
+          <td>state:-<%= @taluka&.state&.name %></td>
+          <br>
+          <td>district:- <%= @taluka.district.name %></td>
+          <br>
+          <td>taluka:- <%= @taluka.name %></td>
+          </div>
+          <%= link_to 'Back', talukas_path %>
+      </div>
+    </div>
+  </div>  
+<center>

@@ -1,0 +1,12 @@
+<center>
+  <h1>Edit States</h1>
+  <%= form_for @state do |form|%>
+    <%= form.text_field :name %><br>
+    <% @state.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    <%= form.submit %>
+  <% end %>
+  <td><%= link_to 'Back', states_path, class: :"nav-link" %></td>
+  
+</center>

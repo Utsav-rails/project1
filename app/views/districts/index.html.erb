@@ -1,0 +1,27 @@
+<center>
+<h1><td>District</td></h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">District_Name</th>
+      <th scope="col">State_Name</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @districts.each do |district|%>
+      <tr>
+        <td><%= link_to "(#{district.id}) #{district.name}", district_path(district.id), method: :get  %></td>
+        <td><%= link_to "(#{district.state.id}) #{district.state.name}", district_path(district.id), method: :get  %></td>
+
+        <td><%= link_to 'Edit', edit_district_path(district.id), method: :get   %></td>
+        <td><%= link_to 'Delete', delete_district_path(district.id), method: :delete  %></td>
+      </tr>  
+    <% end %>
+  </tbody>
+</table>
+<br> 
+<%= link_to 'New district', new_district_path %>
+<br>
+<td><%= link_to 'Back', states_path, class: :"nav-link" %></td>

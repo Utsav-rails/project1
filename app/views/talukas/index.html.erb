@@ -1,0 +1,29 @@
+<center>
+  <h1><td>Taluka</td></h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Taluka_Name</th>
+        <th scope="col">District_Name</th>
+        <th scope="col">State_Name</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @talukas.each do |taluka|%>
+        <tr>
+          <td><%= link_to "(#{taluka.id}) #{taluka.name}", taluka_path(taluka.id), method: :get %></td>
+          <td><%= link_to "(#{taluka.district.id}) #{taluka.district.name}", taluka_path(taluka.id), method: :get %></td>
+          <td><%= link_to "(#{taluka.state_id}) #{taluka&.state&.name}", taluka_path(taluka.id), method: :get %></td>
+
+          <td><%= link_to 'Edit', edit_taluka_path(taluka.id), method: :get %></td>
+          <td><%= link_to 'Delete', delete_taluka_path(taluka.id), method: :delete %></td>
+        </tr>  
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'New taluka', new_taluka_path %>
+  <br>
+  <%= link_to 'Back', states_path %>

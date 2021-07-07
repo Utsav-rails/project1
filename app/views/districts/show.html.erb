@@ -1,0 +1,18 @@
+<center>
+  <p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">District</a>
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <div class="card card-body">
+        <td>state:- <%= @district.state.name %></td>
+        <br>
+        <td>district:- <%= @district.name %></td>
+        <br>
+        </div>
+        <%= link_to 'Back', districts_path %>
+      </div>
+    </div>
+  </div>  
+<center>

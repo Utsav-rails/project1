@@ -1,0 +1,22 @@
+<center>
+<h1><td>States</td></h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <% @states.each do |state|%>
+      <tr>
+        <td><%= link_to "(#{state.id}) #{state.name}", state_path(state.id), method: :get %></td> 
+        <td><%= link_to 'Edit', edit_state_path(state.id), method: :get %></td>
+        <td><%= link_to 'Delete', delete_state_path(state.id), method: :delete %></td>
+        </tr>  
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New State', new_state_path %>

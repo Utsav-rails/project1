@@ -1,0 +1,17 @@
+<center>
+  <h1>Edit Talukas</h1>
+  <%= form_for @taluka do |form|%>
+    <%= form.text_field :name %><br>
+    <%= form.select :district_id, District.all.collect {|p| [ p.name, p.id ]}, include_blank: true %>
+    <br>
+    <%= form.select :state_id, State.all.collect {|p| [ p.name, p.id ]}, include_blank: true %>
+
+    <% @taluka.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    <%= form.submit %>
+  <% end %>
+  <br>
+  <td><%= link_to 'Back', talukas_path, class: :"nav-link" %></td>
+  
+</center>
