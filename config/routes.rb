@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'states#index'
+  devise_for :users
+  root to: 'states#index'
 
   get 'states', to: 'states#index'
   get 'states/new', to: 'states#new',as: :new_state
@@ -25,4 +26,12 @@ Rails.application.routes.draw do
   delete 'talukas/:id', to: 'talukas#destroy',as: :delete_taluka
   get 'talukas/:id', to: 'talukas#show',as: :taluka 
 
+  get 'animals', to: 'animals#index'
+  get 'animals/new',to: 'animals#new',as: :new_animal
+  post 'animals', to: 'animals#create', as: :create_animal
+  delete 'animals/:id',to: 'animals#destroy',as: :destroy_animal
+  get 'animals/:id/edit', to: 'animals#edit', as: :edit_animal
+  patch 'animals/:id',to: 'animals#update',as: :update_animal
+  get 'animals/:id',to: 'animals#show',as: :animal
+ 
 end

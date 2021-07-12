@@ -17,8 +17,8 @@
           <td><%= link_to "(#{taluka.district.id}) #{taluka.district.name}", taluka_path(taluka.id), method: :get %></td>
           <td><%= link_to "(#{taluka.state_id}) #{taluka&.state&.name}", taluka_path(taluka.id), method: :get %></td>
 
-          <td><%= link_to 'Edit', edit_taluka_path(taluka.id), method: :get %></td>
-          <td><%= link_to 'Delete', delete_taluka_path(taluka.id), method: :delete %></td>
+          <td><%= link_to 'Edit', edit_taluka_path(taluka.id), method: :get, class: :"btn btn-outline-secondary" %></td>
+          <td><%= link_to 'Delete', delete_taluka_path(taluka.id), method: :delete, class: :"btn btn-outline-danger" %></td>
         </tr>  
       <% end %>
     </tbody>

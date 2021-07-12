@@ -1,0 +1,9 @@
+<center>
+  <h1><%= @animal.name %></h1>
+    <br>
+  <% if @animal.image_url.attached? %>
+    <%= image_tag @animal.image_url %>
+  <% end %>
+    <br>
+  <%= link_to 'Back', animals_path %>
+</center>

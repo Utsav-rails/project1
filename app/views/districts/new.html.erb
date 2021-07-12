@@ -9,9 +9,9 @@
 
     <%= form.select :state_id, State.all.collect {|p| [ p.name, p.id ] }, include_blank: true %>
     <br>
-    <%= form.select :state_id, Taluka.all.collect {|p| [ p.name, p.id ]}, include_blank: true %>
+    <%= form.select :taluka_id, Taluka.all.collect {|p| [ p.name, p.id ]}, include_blank: true %>
 
-    <%= form.submit %>
+    <%= form.submit class: :"btn btn-outline-success" %>
   <% end %>
   <td><%= link_to 'Back', districts_path, class: :"nav-link" %></td>
   

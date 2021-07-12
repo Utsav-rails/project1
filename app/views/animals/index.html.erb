@@ -1,0 +1,38 @@
+<center>
+<h1>Animals</h1>
+<%= search_form_for @search do |form| %>
+  <div class="field">
+    <%= form.label :name_cont, "Name Containes" %>
+    <%= form.text_field :name_cont %>
+  </div>
+  <div class="action">
+    <%= form.submit "search" %>
+    <br>
+    <td><%= link_to 'Back', animals_path, class: :"nav-link" %></td>
+  </div>
+<% end %>  
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Image_url</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Destroy</th>
+      </tr>
+    </thead>
+  <tbody>
+    <% @animals.each do |animal| %>
+      <tr>
+        <td scope="col"><%= link_to "#{animal.name}", animal_path(animal.id), method: :get %></td>
+        <td scope="col"><%= image_tag animal.image_url, size: "70x70" %></td> 
+        <td scope="col"><%= link_to 'Edit', edit_animal_path(animal.id), method: :get, class: :"btn btn-outline-secondary" %></td>
+        <td scope="col"><%= link_to 'Delete', destroy_animal_path(animal.id),method: :delete, class: :"btn btn-outline-danger" %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+<br> 
+<td><%= link_to 'Create', new_animal_path, method: :get %></td>
+<br>
+<td><%= link_to 'Back', states_path, class: :"nav-link" %></td>
+</center>

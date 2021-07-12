@@ -1,12 +1,13 @@
 <center>
   <h1>New States</h1>
   <%= form_for @state do |form|%>
-    <%= form.text_field :name %><br>
+    <%= form.text_field :name, class: :"form-control" %><br>
     <% @state.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
+    <div><%= message %></div>
     <% end %>
-    <%= form.submit %>
+    <%= form.select :taluka_id, Taluka.all.collect {|p| [ p.name, p.id ]}, include_blank: true %>
+    <%= form.submit class: :"btn btn-outline-success" %>
   <% end %>
-  <td><%= link_to 'Back', districts_path, class: :"nav-link" %></td>
+  <td><%= link_to 'Back', states_path, class: :"nav-link" %></td>
   
 </center>

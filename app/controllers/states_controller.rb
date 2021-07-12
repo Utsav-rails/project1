@@ -1,6 +1,10 @@
 class StatesController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
-    @states = State.all
+    @search = State.search(params[:query])
+    @states = @search.result
   end
 
   def new
@@ -38,7 +42,9 @@ class StatesController < ApplicationController
 
   private
   def state_params
-    params.require(:state).permit(:name, :taluka_id)
+    params.require(:state).permit(:name, :taluka_id, :taluka_name)
   end
+
+  # Parameters: {"authenticity_token"=>"[FILTERED]", "state"=>{"name"=>"Uttar-Pradesh "}, "commit"=>"Create State"}
 
 end

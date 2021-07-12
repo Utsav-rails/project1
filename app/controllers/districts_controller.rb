@@ -1,4 +1,6 @@
 class DistrictsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @districts = District.all
   end
@@ -38,7 +40,7 @@ class DistrictsController < ApplicationController
 
   private
   def district_params
-    params.require(:district).permit(:name, :state_id)
+    params.require(:district).permit(:name, :state_id, :taluka_id)
   end
 
 end
